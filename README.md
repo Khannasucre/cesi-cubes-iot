@@ -4,6 +4,7 @@
 
 #### Requis
 -> Python et internet
+->
 
 #### Api with Django (in terminal)
 1. pip install Django
