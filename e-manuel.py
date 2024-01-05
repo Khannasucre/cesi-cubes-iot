@@ -2,20 +2,21 @@ import json
 import requests
 
 def main():
-    url_flask = "http://localhost:8000/api/meteo/"
-    url_django = "http://localhost:8000/meteo"
+    url = "http://localhost:8000/api/v1/meteo/"
+    #url_flask = "http://localhost:8000/api/v1/meteo/"
+    #url_django = "http://localhost:8000/meteo"
 
-    print("Quel Api veux tu utiliser ?")
-    print("1. Flask")
-    print("2. Django")
+    # print("Quel Api veux tu utiliser ?")
+    # print("1. Flask")
+    # print("2. Django")
 
-    choix_api = int(input("Entre le numéro correspondant\n"))
+    # choix_api = int(input("Entre le numéro correspondant\n"))
 
-    match choix_api:
-        case 1:
-            url = url_flask
-        case 2:
-            url = url_django
+    # match choix_api:
+    #     case 1:
+    #         url = url_flask
+    #     case 2:
+    #         url = url_django
 
 
     print("Liste des actions : ")
