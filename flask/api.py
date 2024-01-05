@@ -21,7 +21,7 @@ def home():
     return "<h1>Coucou, si tu arrives içi tu es au bon endroit jeune DI</h1><h3>Nous te reverrons Juju!</h3><h6>Et toi loic c'est pas grave si on ne te vois plus</h6>"
 
 #Endpoint meteo pour les données du cubes
-@app.route('/api/v1/meteo/', methods=['GET', 'POST'])
+@app.route('/api/v1/meteo/', methods=['GET', 'POST','DELETE'])
 #creation de la fonction
 def meteo():
 	
