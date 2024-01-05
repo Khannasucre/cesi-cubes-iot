@@ -150,6 +150,13 @@ components:
           type: integer
           format: int64
           example: 10
-        name:
-          type: string
-          example: doggie
+        temperature:
+          type: number
+          example: 10.5
+        pressure:
+          type: number
+          example: 10.5
+        humidity:
+          type: number
+          example: 67
+      
