@@ -1,7 +1,10 @@
 # -*- coding: utf-8 -*-
 
-from flask import Flask, jsonify, request,  render_template
+from flask import Flask, jsonify, request
 from flask_sqlalchemy import SQLAlchemy
+
+from flask_swagger_ui import get_swaggerui_blueprint
+
 
 app = Flask(__name__)
 
@@ -50,6 +53,25 @@ def meteo():
 	#Si la methode utilisee dans la requête est differente alors un message sera renvoyé
     else:
         return jsonify(message='Method unauthorized ! Use GET or POST instead !')
+
+
+
+SWAGGER_URL = '/swagger'
+API_URL = '/static/swagger.json'  # Assurez-vous de servir votre fichier Swagger JSON statique depuis cette URL
+
+swaggerui_blueprint = get_swaggerui_blueprint(
+    SWAGGER_URL,
+    API_URL,
+    config={
+        'app_name': "Swagger Meteo Store"
+    }
+)
+
+app.register_blueprint(swaggerui_blueprint, url_prefix=SWAGGER_URL)
+
+@app.route('/static/<path:path>')
+def send_static(path):
+    return send_from_directory('static', path)
 
 
 if __name__ == '__main__':
