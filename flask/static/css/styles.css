@@ -2,8 +2,20 @@
 body {
     background-color: #f4f4f4;
     font-family: Arial, Helvetica, sans-serif;
+    text-align:center ;
+
 }
 
 h1 {
     color: #333;
+}
+
+
+.github-logo:hover {
+    
+    animation: spin 2s infinite linear;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
