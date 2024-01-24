@@ -46,12 +46,12 @@ def main():
 
 
 
-        # case 3 :
-        #     dead_id = input("Numéro du groupe à supprimer : ")
-        #     data = {'id' : dead_id}
+        case 3 :
+            dead_id = input("Numéro du groupe à supprimer : ")
+            data = {'id' : dead_id}
             
-        #     if data.values():
-        #         deletr = requests.delete(url+dead_id, )
+            if data.values():
+                deletr = requests.delete(url+dead_id, )
 
 
 
