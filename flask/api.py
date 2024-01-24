@@ -11,6 +11,7 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
 db = SQLAlchemy(app)
 
+
 #Creation de la table Meteo avec les données température humidite et pression chacun comme nombre decimal et un id qui s
 class Meteo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -18,13 +19,15 @@ class Meteo(db.Model):
     humidity = db.Column(db.Float)
     pressure = db.Column(db.Float)
 
+
 #Endpoint par defaut qui sert de page d'acceuil
 @app.route('/', methods=['GET'])
 def home():
     return render_template('index.html')
 
+
 #Endpoint meteo pour les données du cubes
-@app.route('/api/v1/meteo/', methods=['GET', 'POST','DELETE'])
+@app.route('/api/v1/meteo/', methods=['GET', 'POST'])
 #creation de la fonction
 def meteo():
 	
@@ -34,8 +37,8 @@ def meteo():
 		#data récupère toutes les données dans la table Meteo et les trie par id decroissant (le plus grand en premier donc le dernier ajoute)
         data = Meteo.query.order_by(Meteo.id.desc()).all()
         #meteo va passer dans chaque valeurs recuperees et mettre sous format json temperatue, humidite et pression
-        meteo = [{'temperature': item.temperature, 'humidity': item.humidity, 'pressure': item.pressure} for item in data]
-        return jsonify(meteo)
+        meteo = [{'id' : item.id, 'temperature': item.temperature, 'humidity': item.humidity, 'pressure': item.pressure} for item in data]
+        return render_template('api.html', data=meteo)
 	
 	#Seconde methode POST : Elle nous permet d'envoyer des donnees au serveur afin qu'il les ajoute a notre table
     elif request.method == 'POST':
@@ -53,6 +56,24 @@ def meteo():
 	#Si la methode utilisee dans la requête est differente alors un message sera renvoyé
     else:
         return jsonify(message='Method unauthorized ! Use GET or POST instead !')
+
+
+@app.route('/api/v1/meteo/<int:id>', methods=['DELETE','GET'])
+def delete_data(id):
+
+    data = Meteo.query.get(id)
+
+    if request.method == 'DELETE':
+        if data:
+            db.session.delete(data)
+            db.session.commit()
+            return jsonify(message=f'Data with ID {id} deleted successfully')
+        else:
+            return jsonify(message=f'Data with ID {id} not found'), 404
+        
+    elif request.method == 'GET':
+        meteo = [{'id' : data.id, 'temperature': data.temperature, 'humidity': data.humidity, 'pressure': data.pressure}]
+        return render_template('api.html', data=meteo)
 
 
 
