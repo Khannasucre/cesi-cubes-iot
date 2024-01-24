@@ -17,6 +17,7 @@
             <th>Temperature (°C)</th>
             <th>Humidity (%)</th>
             <th>Pressure (Pa)</th>
+            <th>Date</th>
         </tr>
         {% for item in data %}
         <tr>
@@ -24,6 +25,7 @@
             <td>{{ item.temperature }}</td>
             <td>{{ item.humidity }}</td>
             <td>{{ item.pressure }}</td>
+            <td>{{ item.date }}</td>
         </tr>
         {% endfor %}
     </table>

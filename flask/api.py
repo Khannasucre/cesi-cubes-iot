@@ -18,6 +18,7 @@ class Meteo(db.Model):
     temperature = db.Column(db.Float)
     humidity = db.Column(db.Float)
     pressure = db.Column(db.Float)
+    date = db.Column(db.String(100))
 
 
 #Endpoint par defaut qui sert de page d'acceuil
@@ -25,6 +26,21 @@ class Meteo(db.Model):
 def home():
     return render_template('index.html')
 
+
+
+@app.route('/meteo/', methods=['GET'])
+def user_interface():
+
+    data = Meteo.query.order_by(Meteo.id.desc()).all()
+    meteo = [{'id' : item.id, 'temperature': item.temperature, 'humidity': item.humidity, 'pressure': item.pressure, 'date': item.date} for item in data]
+    return render_template('userInterface.html', data=meteo)
+
+@app.route('/meteo/<int:id>', methods=['GET'])
+def user_interface_by_id(id):
+
+    data = Meteo.query.get(id)
+    meteo = [{'id' : data.id, 'temperature': data.temperature, 'humidity': data.humidity, 'pressure': data.pressure, 'date': data.date}]
+    return render_template('id.html', data=meteo)
 
 #Endpoint meteo pour les données du cubes
 @app.route('/api/v1/meteo/', methods=['GET', 'POST'])
@@ -37,15 +53,16 @@ def meteo():
 		#data récupère toutes les données dans la table Meteo et les trie par id decroissant (le plus grand en premier donc le dernier ajoute)
         data = Meteo.query.order_by(Meteo.id.desc()).all()
         #meteo va passer dans chaque valeurs recuperees et mettre sous format json temperatue, humidite et pression
-        meteo = [{'id' : item.id, 'temperature': item.temperature, 'humidity': item.humidity, 'pressure': item.pressure} for item in data]
-        return render_template('api.html', data=meteo)
-	
+        meteo = [{'id' : item.id, 'temperature': item.temperature, 'humidity': item.humidity, 'pressure': item.pressure, 'date': item.date} for item in data]
+        
+        return jsonify(meteo)
+
 	#Seconde methode POST : Elle nous permet d'envoyer des donnees au serveur afin qu'il les ajoute a notre table
     elif request.method == 'POST':
         #data recupere les donnees envoyees par notre requete
         data = request.get_json()
         #new_data associe la cle de chaque valeur recue a une cle de notre table
-        new_data = Meteo(temperature=data['temperature'], humidity=data['humidity'], pressure=data['pressure'])
+        new_data = Meteo(temperature=data['temperature'], humidity=data['humidity'], pressure=data['pressure'], date=data['date'])
         #ajoute les donnees dans la table
         db.session.add(new_data)
         #sauvegarde notre ajout (.rollback() annulerait l'ajout)
@@ -59,7 +76,7 @@ def meteo():
 
 
 @app.route('/api/v1/meteo/<int:id>', methods=['DELETE','GET'])
-def delete_data(id):
+def by_id(id):
 
     data = Meteo.query.get(id)
 
@@ -71,9 +88,6 @@ def delete_data(id):
         else:
             return jsonify(message=f'Data with ID {id} not found'), 404
         
-    elif request.method == 'GET':
-        meteo = [{'id' : data.id, 'temperature': data.temperature, 'humidity': data.humidity, 'pressure': data.pressure}]
-        return render_template('api.html', data=meteo)
 
 
 

@@ -26,7 +26,7 @@ while True:
             "temperature" : float(a[0]),
             "humidity" : float(a[1]),
             "pressure" : float(a[2]),
-            "timestamp" : date
+            "date" : date
         }
         print(data)
         if data.values():
