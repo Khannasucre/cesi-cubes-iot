@@ -7,8 +7,8 @@ def main():
     print("Liste des actions : ")
     print("1. Ajouter")
     print("2. Montrer les données stockées")
-    # print("2. Modifier")
-    # print("3. Supprimer")
+    print("3. Supprimer")
+    print("???????????????????????????")
     choix = int(input("Quelle action veux tu effectuer ?\n"))
 
     
@@ -34,26 +34,20 @@ def main():
             get = requests.get(url)
             print(get.json())
 
-
-        # case 2 :
-        #     old_name = input("Ancien nom de ton groupe: ")
-        #     old_id = input("ID nom de ton groupe: ")
-        #     new_name = input("Nouveau nom de ton groupe: ")
-        #     payload = {'name' : new_name, }#'id' : old_id}
-        #     if payload.values():
-        #         put = requests.put(url+old_id, data=payload)
-        #         print(put.content)
-
-
-
         case 3 :
             dead_id = input("Numéro du groupe à supprimer : ")
             data = {'id' : dead_id}
             
             if data.values():
-                deletr = requests.delete(url+dead_id, )
+                delete = requests.delete(url+dead_id, )
 
-
+        case 1984 :
+            get = requests.get(url)
+            get = get.json()
+            id = [i['id'] for i in get]
+            for i in id : 
+                delete = requests.delete(url+ str(i) )
+                print(delete)
 
 if __name__ == "__main__":
     main()
