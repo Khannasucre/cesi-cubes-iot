@@ -2,7 +2,7 @@ import json
 import requests
 
 def main():
-    url = "http://localhost:8000/api/v1/meteo/"
+    url = "http://10.244.128.66:8000/api/v1/meteo/"
 
     print("Liste des actions : ")
     print("1. Ajouter")

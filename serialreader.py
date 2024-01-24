@@ -3,7 +3,7 @@ import requests
 import serial
 import time
 
-url = 'http://127.0.0.1:8000/api/v1/meteo/'
+url = 'http://10.244.128.66:8000/api/v1/meteo/'
 
 timestamp = int(time.time()) + 3600
 date =  datetime.utcfromtimestamp(timestamp)
