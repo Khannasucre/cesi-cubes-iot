@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/api.css') }}">
+
+    <title>Meteo API</title>
+</head>
+<body>
+    <h1>Meteo API</h1>
+
+    <h2>Data with specific id</h2>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Temperature (°C)</th>
+            <th>Humidity (%)</th>
+            <th>Pressure (Pa)</th>
+        </tr>
+        {% for item in data %}
+        <tr>
+            <td>{{ item.id }}</td>
+            <td>{{ item.temperature }}</td>
+            <td>{{ item.humidity }}</td>
+            <td>{{ item.pressure }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
