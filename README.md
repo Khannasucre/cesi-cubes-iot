@@ -8,7 +8,7 @@
 
 ## DOCUMENTATION
 
-# Arduino
+## Arduino
 Matériel :
 -> Elegoo uno R3
 -> sonde bme280 (WPSE335)
