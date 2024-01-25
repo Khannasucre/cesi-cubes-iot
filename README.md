@@ -3,8 +3,8 @@
 # CUBES IOT CESI DI 2023/2024
 
 ### Requis
--> **Python** et **Internet**
--> **Arduino** et **Rasperry Pi**
+- **Python** et **Internet**
+- **Arduino** et **Rasperry Pi**
 
 ## DOCUMENTATION : 
 
@@ -15,8 +15,8 @@
 - Sonde BME280 (WPSE335)
 
 **Librairies :**
--> https://www.arduino.cc/reference/en/libraries/bme280/
--> wire.h (présente par défaut sur Arduino)
+- https://www.arduino.cc/reference/en/libraries/bme280/
+- wire.h (présente par défaut sur Arduino)
 
 **Pour l'utilisation de l'Arduino vous devez suivre les étapes suivantes :**
 
