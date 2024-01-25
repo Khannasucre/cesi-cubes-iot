@@ -1,12 +1,12 @@
 # cesi-cubes-iot
 
-### CUBES IOT CESI 11 et 12 décembre 2023
+# CUBES IOT CESI DI 2023/2024
 
-#### Requis
+## Requis
 -> Python et internet
 
 
-#### Api with Flask (in terminal)
+## Api with Flask (in terminal)
 1. pip install Flask
 2. pip install Flask-SQLAlchemy
 3. pip install flask_swagger_ui
