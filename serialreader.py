@@ -9,7 +9,7 @@ timestamp = int(time.time()) + 3600
 date =  datetime.utcfromtimestamp(timestamp)
 date = date.strftime('%Y-%m-%d %H:%M:%S')
 
-port = 'COM3' 
+port = '/dev/ttyACM0' 
 baud_rate = 115200
 
 ser = serial.Serial(port, baud_rate)
