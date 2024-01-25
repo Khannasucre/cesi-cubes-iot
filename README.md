@@ -4,19 +4,11 @@
 
 ## Requis
 -> Python et internet
+-> Arduino et Rasperry
 
+##DOCUMENTATION
 
-## Api with Flask (in terminal)
-1. pip install Flask
-2. pip install Flask-SQLAlchemy
-3. pip install flask_swagger_ui
-4. Go to flask folder
-5. python api.py
-
-
-DOCUMENTATION
-
-Arduino
+#Arduino
 Matériel :
 -> Elegoo uno R3
 -> sonde bme280 (WPSE335)
@@ -34,11 +26,11 @@ Pour l'utilisation de l'arduino vous devez suivre les étapes suivantes :
 
 
 
-Rasperry
+#Rasperry
 
 Les étapes suivantes sont  à faire après la configuration de base de votre rasperry :
 -> Clonez le répertoire
-->(OPTIONNEL) vous pouvez créer un environement virtuel sur votre rasperry pour cloisonner vos librairies vous pouvez le faire en faisant : $ python -m venv _nomdevotreenvironnement_ puis en faisant _$ source nomdevotreenvironnement/bin/activate_
+-> (OPTIONNEL) vous pouvez créer un environement virtuel sur votre rasperry pour cloisonner vos librairies vous pouvez le faire en faisant : $ python -m venv _nomdevotreenvironnement_ puis en faisant _$ source nomdevotreenvironnement/bin/activate_
 ->Ensuite vous pouvez téléchargez les dépendances en allant dans le dossier principal du répertoire (cesi-cube-iot) puis en faisant _$ pip install -r requirements.txt_
 -> Une fois toutes les dépendances installées récupérez l'ip de votre appareil en faisant _$ ifconfig_ et remplacez l'ip déjà présente dans e-manuel.py serialreader.py index.html et swagger.json avec votre ip.
 -> Branchez votre arduino sur votre rasperry en usb et dans votre console tapez _$ ls /dev/tty*_ vous devriez avoir un nom similaire à "/dev/ttyACM0" copiez le et remplacez le COM3 dans serialreader.py par votre le nom correspondant.
