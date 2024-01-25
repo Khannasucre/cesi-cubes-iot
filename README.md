@@ -1,6 +1,6 @@
 # cesi-cubes-iot
 
-# CUBES IOT CESI 2023/2024
+# CUBES IOT CESI DI 2023/2024
 
 ## Requis
 -> Python et internet
