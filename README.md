@@ -1,6 +1,6 @@
 # cesi-cubes-iot
 
-# CUBES IOT CESI 11 et 12 décembre 2023
+# CUBES IOT CESI 2023/2024
 
 ## Requis
 -> Python et internet
