@@ -6,9 +6,9 @@
 -> Python et internet
 -> Arduino et Rasperry
 
-##DOCUMENTATION
+## DOCUMENTATION
 
-#Arduino
+# Arduino
 Matériel :
 -> Elegoo uno R3
 -> sonde bme280 (WPSE335)
