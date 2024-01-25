@@ -4,15 +4,16 @@
 
 #### Requis
 -> Python et internet
-->
 
-#### Api with Django (in terminal)
+
+
+~~#### Api with Django (in terminal)
 1. pip install Django
 2. pip install djangorestframework
 3. Go to django folder
 4. Go to iot folder
 5. nano settings.py (ALLOWED_HOSTS = ['ip', 'host_name', 'localhost', '127.0.0.1'] ctrl o enter ctrl x)
-7. python manage.py runserver
+7. python manage.py runserver~~
 
 
 #### Api with Flask (in terminal)
