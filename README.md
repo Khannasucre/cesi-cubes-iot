@@ -35,5 +35,12 @@ Les étapes suivantes sont  à faire après la configuration de base de votre ra
 -> Une fois toutes les dépendances installées récupérez l'ip de votre appareil en faisant _$ ifconfig_ et remplacez l'ip déjà présente dans e-manuel.py serialreader.py index.html et swagger.json avec votre ip.
 -> Branchez votre arduino sur votre rasperry en usb et dans votre console tapez _$ ls /dev/tty*_ vous devriez avoir un nom similaire à "/dev/ttyACM0" copiez le et remplacez le COM3 dans serialreader.py par votre le nom correspondant.
 -> Lorsque tout est prêt allez dans flask/ et dans votre console faite _$ python api.py_ ce qui lancera votre api sur le port 8000 de votre rasperry.
+-> Dans une 2e console vous devez faire _$ python serialreader.py_ pour lancer la lecture des données.
 
 
+## FONCTIONNEMENT
+
+Ce répertoire fonctionne en plusieurs point :
+-> L'arduino qui récupère les données et les écrits dans son serial
+-> le script serialreader qui nous permet de lire ces données et de les envoyer sur l'api
+-> Flask qui une fois lancé héberge l'api et stocke les données
