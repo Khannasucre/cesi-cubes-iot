@@ -67,4 +67,6 @@ void printBME280Data
    client->print(hum);
    client->print("/");
    client->println(pres);
+
+   delay(1000);
 }
